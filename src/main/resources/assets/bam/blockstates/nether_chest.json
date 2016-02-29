@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "bam:nether_chest" },
+        "facing=east":  { "model": "bam:nether_chest" },
+        "facing=south":  { "model": "bam:nether_chest" },
+        "facing=west":  { "model": "bam:nether_chest" }
+    }
+}

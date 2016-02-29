@@ -1,0 +1,8 @@
+{
+    "parent":"bam:block/table_base_n",
+    "textures": {
+        "particle": "blocks/planks_birch",
+        "0": "blocks/planks_birch",
+        "1": "blocks/log_birch"
+    }
+}

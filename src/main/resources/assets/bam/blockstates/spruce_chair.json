@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "bam:spruce_chair" },
+        "facing=east":  { "model": "bam:spruce_chair", "y": 90 },
+        "facing=south":  { "model": "bam:spruce_chair", "y": 180 },
+        "facing=west":  { "model": "bam:spruce_chair", "y": 270 }
+    }
+}

@@ -1,0 +1,26 @@
+tile.bam.oak_chair.name=Oak Chair
+tile.bam.spruce_chair.name=Spruce Chair
+tile.bam.birch_chair.name=Birch Chair
+tile.bam.jungle_chair.name=Jungle Chair
+tile.bam.acacia_chair.name=Acacia Chair
+tile.bam.dark_oak_chair.name=Dark Oak Chair
+
+tile.bam.oak_table.name=Oak Table
+tile.bam.spruce_table.name=Spruce Table
+tile.bam.birch_table.name=Birch Table
+tile.bam.jungle_table.name=Jungle Table
+tile.bam.acacia_table.name=Acacia Table
+tile.bam.dark_oak_table.name=Dark Oak Table
+
+item.bam.flying_carpet.name=Flying Carpet
+
+
+tile.bam.gravestone.name=Gravestone
+
+entity.staticItem.name=Static Item
+
+gravestone.edit=Set gravestone text
+message.chair.occupied=The chair is already being used by %s
+
+button.switchHoverText.toInventory=Switch to \&edefault\&r inventory
+button.switchHoverText.toAccessories=Switch to \&eaccessories\&r inventory\n(Dismissing any other open inventory)

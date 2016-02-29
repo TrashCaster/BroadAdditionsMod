@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "bam:gravestone" },
+        "facing=east":  { "model": "bam:gravestone" },
+        "facing=south":  { "model": "bam:gravestone" },
+        "facing=west":  { "model": "bam:gravestone" }
+    }
+}

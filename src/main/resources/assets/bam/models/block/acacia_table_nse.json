@@ -1,0 +1,8 @@
+{
+    "parent":"bam:block/table_base_nse",
+    "textures": {
+        "particle": "blocks/planks_acacia",
+        "0": "blocks/planks_acacia",
+        "1": "blocks/log_acacia"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "bam:jungle_chair" },
+        "facing=east":  { "model": "bam:jungle_chair", "y": 90 },
+        "facing=south":  { "model": "bam:jungle_chair", "y": 180 },
+        "facing=west":  { "model": "bam:jungle_chair", "y": 270 }
+    }
+}

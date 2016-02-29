@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bam",
+  "name": "Broad Additions Mod",
+  "description": "Collection of assorted additions mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TrashCaster"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

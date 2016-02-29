@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "bam:oak_chair" },
+        "facing=east":  { "model": "bam:oak_chair", "y": 90 },
+        "facing=south":  { "model": "bam:oak_chair", "y": 180 },
+        "facing=west":  { "model": "bam:oak_chair", "y": 270 }
+    }
+}
