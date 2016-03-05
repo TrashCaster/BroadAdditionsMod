@@ -14,7 +14,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -48,7 +47,6 @@ public class ClientProxy extends CommonProxy {
 	public void preInit() {
 		super.preInit();
 
-		ModelLoader.setCustomStateMapper(BroadAdditionsMod.Content.Liquid.REDWATER.getBlock(), new StateMap.Builder().ignore(BlockLiquid.LEVEL).build());
 		RenderingRegistry.registerEntityRenderingHandler(EntityStaticItem.class, RenderStaticItem::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingCarpet.class, RenderFlyingCarpet::new);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGravestone.class, new TileEntityGravestoneRenderer());
