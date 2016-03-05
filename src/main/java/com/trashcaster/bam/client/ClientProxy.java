@@ -24,7 +24,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -77,7 +76,6 @@ public class ClientProxy extends CommonProxy {
 	public void init() {
 		super.init();
 		MinecraftForge.EVENT_BUS.register(EVENT_HANDLER_CLIENT);
-		FMLCommonHandler.instance().bus().register(EVENT_HANDLER_CLIENT);
 		NetworkRegistry.INSTANCE.registerGuiHandler(BroadAdditionsMod.INSTANCE, GUI_HANDLER);
 
 		RENDER_MOD_PLAYER_DEFAULT = new RenderModPlayer(Minecraft.getMinecraft().getRenderManager(), false);
