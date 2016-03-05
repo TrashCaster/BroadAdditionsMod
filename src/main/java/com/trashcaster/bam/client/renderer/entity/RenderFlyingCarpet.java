@@ -1,42 +1,21 @@
 package com.trashcaster.bam.client.renderer.entity;
 
-import java.awt.Point;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.BufferUtils;
+import net.minecraft.client.renderer.entity.RenderManager;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL20;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.util.glu.GLU;
 
-import com.trashcaster.bam.BroadAdditionsMod;
-import com.trashcaster.bam.client.model.ModelFlyingCarpet;
 import com.trashcaster.bam.entity.EntityFlyingCarpet;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.resources.model.IBakedModel;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Vec3;
 
 public class RenderFlyingCarpet extends Render<EntityFlyingCarpet> {
-	public RenderFlyingCarpet() {
-		super(Minecraft.getMinecraft().getRenderManager());
+	public RenderFlyingCarpet(RenderManager renderManager) {
+		super(renderManager);
 		this.shadowSize = 1.25f;
 	}
 

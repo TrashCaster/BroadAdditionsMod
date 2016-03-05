@@ -1,8 +1,5 @@
 package com.trashcaster.bam.common;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-
 import com.trashcaster.bam.BroadAdditionsMod;
 import com.trashcaster.bam.block.BlockChair;
 import com.trashcaster.bam.block.BlockGravestone;
@@ -13,7 +10,6 @@ import com.trashcaster.bam.entity.item.EntityStaticItem;
 import com.trashcaster.bam.item.ItemAccessory;
 import com.trashcaster.bam.item.ItemFlyingCarpet;
 import com.trashcaster.bam.tileentity.TileEntityGravestone;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -30,6 +26,9 @@ import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class CommonProxy {
 	
@@ -85,13 +84,8 @@ public class CommonProxy {
 			GameRegistry.addShapedRecipe(new ItemStack(tables[i], 4), "PP", "LL", 'P', new ItemStack(Blocks.planks, 1, (byte)i), 'L', logs[i]);
 		}
 
-		EntityRegistry.registerGlobalEntityID(EntitySittable.class, "Seat", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntitySittable.class, "seat", 0, BroadAdditionsMod.INSTANCE, 64, 1, true);
-
-		EntityRegistry.registerGlobalEntityID(EntityStaticItem.class, "StaticItem", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityStaticItem.class, "staticItem", 1, BroadAdditionsMod.INSTANCE, 64, 1, true);
-
-		EntityRegistry.registerGlobalEntityID(EntityFlyingCarpet.class, "FlyingCarpet", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityFlyingCarpet.class, "flyingCarpet", 2, BroadAdditionsMod.INSTANCE, 64, 1, true);
 	}
 	
@@ -106,7 +100,7 @@ public class CommonProxy {
 	}
 	
 	private static <T extends Block & IFluidBlock> Fluid createFluid(String name, boolean hasFlowIcon, Consumer<Fluid> fluidPropertyApplier, Function<Fluid, T> blockFactory) {
-		final String texturePrefix = BroadAdditionsMod.MODID+ ":blocks/fluid_";
+		final String texturePrefix = BroadAdditionsMod.MODID + ":blocks/";
 
 		ResourceLocation still = new ResourceLocation(texturePrefix + name + "_still");
 		ResourceLocation flowing = hasFlowIcon ? new ResourceLocation(texturePrefix + name + "_flow") : still;
