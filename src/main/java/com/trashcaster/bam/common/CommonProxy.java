@@ -84,13 +84,8 @@ public class CommonProxy {
 			GameRegistry.addShapedRecipe(new ItemStack(tables[i], 4), "PP", "LL", 'P', new ItemStack(Blocks.planks, 1, (byte)i), 'L', logs[i]);
 		}
 
-		EntityRegistry.registerGlobalEntityID(EntitySittable.class, "Seat", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntitySittable.class, "seat", 0, BroadAdditionsMod.INSTANCE, 64, 1, true);
-
-		EntityRegistry.registerGlobalEntityID(EntityStaticItem.class, "StaticItem", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityStaticItem.class, "staticItem", 1, BroadAdditionsMod.INSTANCE, 64, 1, true);
-
-		EntityRegistry.registerGlobalEntityID(EntityFlyingCarpet.class, "FlyingCarpet", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityFlyingCarpet.class, "flyingCarpet", 2, BroadAdditionsMod.INSTANCE, 64, 1, true);
 	}
 	
