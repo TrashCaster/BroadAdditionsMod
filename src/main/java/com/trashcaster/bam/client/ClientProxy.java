@@ -77,9 +77,6 @@ public class ClientProxy extends CommonProxy {
 		render.getItemModelMesher().register(BroadAdditionsMod.Content.Misc.FLYING_CARPET, 0, new ModelResourceLocation("bam:flying_carpet", "inventory"));
 
 		BroadAdditionsMod.Content.Liquid.REGISTERED_FLUID_BLOCKS.forEach(this::registerFluidModel);
-		
-		RENDER_MOD_PLAYER_DEFAULT = new RenderModPlayer(Minecraft.getMinecraft().getRenderManager(), false);
-		RENDER_MOD_PLAYER_SLIM = new RenderModPlayer(Minecraft.getMinecraft().getRenderManager(), true);
 	}
 
 	@Override
@@ -88,6 +85,9 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForge.EVENT_BUS.register(EVENT_HANDLER_CLIENT);
 		FMLCommonHandler.instance().bus().register(EVENT_HANDLER_CLIENT);
 		NetworkRegistry.INSTANCE.registerGuiHandler(BroadAdditionsMod.INSTANCE, GUI_HANDLER);
+
+		RENDER_MOD_PLAYER_DEFAULT = new RenderModPlayer(Minecraft.getMinecraft().getRenderManager(), false);
+		RENDER_MOD_PLAYER_SLIM = new RenderModPlayer(Minecraft.getMinecraft().getRenderManager(), true);
 	}
 
 	@Override
