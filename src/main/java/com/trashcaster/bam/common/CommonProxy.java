@@ -1,8 +1,5 @@
 package com.trashcaster.bam.common;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-
 import com.trashcaster.bam.BroadAdditionsMod;
 import com.trashcaster.bam.block.BlockChair;
 import com.trashcaster.bam.block.BlockGravestone;
@@ -13,7 +10,6 @@ import com.trashcaster.bam.entity.item.EntityStaticItem;
 import com.trashcaster.bam.item.ItemAccessory;
 import com.trashcaster.bam.item.ItemFlyingCarpet;
 import com.trashcaster.bam.tileentity.TileEntityGravestone;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -30,6 +26,9 @@ import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class CommonProxy {
 	
