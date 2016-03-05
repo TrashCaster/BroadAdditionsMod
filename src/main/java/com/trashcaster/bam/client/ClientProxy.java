@@ -50,8 +50,8 @@ public class ClientProxy extends CommonProxy {
 		super.preInit();
 
 		ModelLoader.setCustomStateMapper(BroadAdditionsMod.Content.Liquid.REDWATER.getBlock(), new StateMap.Builder().ignore(BlockLiquid.LEVEL).build());
-		RenderingRegistry.registerEntityRenderingHandler(EntityStaticItem.class, new RenderStaticItem());
-		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingCarpet.class, new RenderFlyingCarpet());
+		RenderingRegistry.registerEntityRenderingHandler(EntityStaticItem.class, RenderStaticItem::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingCarpet.class, RenderFlyingCarpet::new);
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGravestone.class, new TileEntityGravestoneRenderer());
 		RenderItem render = Minecraft.getMinecraft().getRenderItem();
 
