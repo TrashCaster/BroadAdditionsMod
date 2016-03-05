@@ -106,7 +106,7 @@ public class CommonProxy {
 	}
 	
 	private static <T extends Block & IFluidBlock> Fluid createFluid(String name, boolean hasFlowIcon, Consumer<Fluid> fluidPropertyApplier, Function<Fluid, T> blockFactory) {
-		final String texturePrefix = BroadAdditionsMod.MODID+ ":blocks/fluid_";
+		final String texturePrefix = BroadAdditionsMod.MODID + ":blocks/";
 
 		ResourceLocation still = new ResourceLocation(texturePrefix + name + "_still");
 		ResourceLocation flowing = hasFlowIcon ? new ResourceLocation(texturePrefix + name + "_flow") : still;
