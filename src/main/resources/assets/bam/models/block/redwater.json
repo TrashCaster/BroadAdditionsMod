@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "bam:blocks/redwater_still",
-        "flowing": "bam:blocks/redwater_flow"
-    }
-}

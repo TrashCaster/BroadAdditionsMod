@@ -12,12 +12,15 @@ tile.bam.jungle_table.name=Jungle Table
 tile.bam.acacia_table.name=Acacia Table
 tile.bam.dark_oak_table.name=Dark Oak Table
 
-item.bam.flying_carpet.name=Flying Carpet
+item.bam.amulet.name=Amulet
+item.bam.backpack.name=Backpack
 
 
 tile.bam.gravestone.name=Gravestone
 
 entity.staticItem.name=Static Item
+
+enchantment.boosting=Boosting
 
 gravestone.edit=Set gravestone text
 message.chair.occupied=The chair is already being used by %s

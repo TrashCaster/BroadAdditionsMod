@@ -1,37 +1,34 @@
 package com.trashcaster.bam.client.renderer.entity;
 
-import java.awt.Color;
-import java.util.Random;
-
+import net.minecraft.client.renderer.entity.RenderManager;
 import org.lwjgl.opengl.GL11;
 
+import com.trashcaster.bam.BroadAdditionsMod;
 import com.trashcaster.bam.client.ClientProxy;
 import com.trashcaster.bam.entity.item.EntityStaticItem;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.model.IBakedModel;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderStaticItem extends Render {
+public class RenderStaticItem extends Render<EntityStaticItem> {
 
 	RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+	
+	public static ResourceLocation HIGHLIGHT_TINT = new ResourceLocation(BroadAdditionsMod.MODID, "textures/misc/highlight_tint.png");
+	
 
-	public RenderStaticItem() {
-		super(Minecraft.getMinecraft().getRenderManager());
+	public RenderStaticItem(RenderManager renderManager) {
+		super(renderManager);
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
+	protected ResourceLocation getEntityTexture(EntityStaticItem entity) {
 		return null;
 	}
 
@@ -69,7 +66,7 @@ public class RenderStaticItem extends Render {
 				GlStateManager.depthMask(false);
 				GlStateManager.depthFunc(514);
 				GlStateManager.blendFunc(768, 774);
-				this.bindTexture(ClientProxy.HIGHLIGHT_TINT);
+				this.bindTexture(HIGHLIGHT_TINT);
 				GL11.glScalef(2f, 2f, 2f);
 				this.renderItem.renderItem(entity.getItem(), ibakedmodel);
 				GlStateManager.enableLighting();
@@ -83,11 +80,7 @@ public class RenderStaticItem extends Render {
 		GlStateManager.disableAlpha();
 		GlStateManager.disableBlend();
 		GlStateManager.popMatrix();
-	}
 
-	@Override
-	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float partialTicks) {
-		this.doRender((EntityStaticItem) entity, x, y, z, p_76986_8_, partialTicks);
 		super.doRender(entity, x, y, z, p_76986_8_, partialTicks);
 	}
 }

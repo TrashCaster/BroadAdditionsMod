@@ -26,14 +26,11 @@ public class ItemAccessory extends Item {
 		setUnlocalizedName(BroadAdditionsMod.MODID+"."+name);
 	}
 	
+	// this determines what items can coexist in the accessory inventory
+	// (each type is unique, and can't be "doubled up")
 	public enum AccessoryType {
 		AMULET, BACK_ITEM;
 	}
 
-    public void onAccessoryTick(World world, EntityPlayer player, ItemStack itemStack, int slotIndex) {
-    	if (world.isRemote) {
-    		if (Minecraft.getMinecraft().thePlayer != player)
-    		System.out.println("Client player: "+player.getDisplayNameString()+" ticking accessory "+slotIndex);
-    	}
-    }
+    public void onAccessoryTick(World world, EntityPlayer player, ItemStack itemStack, int slotIndex) {}
 }

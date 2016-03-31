@@ -2,6 +2,7 @@ package com.trashcaster.bam.item;
 
 import com.trashcaster.bam.BroadAdditionsMod;
 import com.trashcaster.bam.common.BucketHandler;
+import com.trashcaster.bam.util.Content;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
@@ -14,10 +15,10 @@ public class ItemBucketRedwater extends ItemBucket {
 	private final String name = "redwater_bucket";
 
 	public ItemBucketRedwater() {
-		super(BroadAdditionsMod.Content.Liquid.REDWATER.getBlock());
+		super(Content.Liquid.REDWATER.getBlock());
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(BroadAdditionsMod.MODID+"."+name);
-		BucketHandler.INSTANCE.buckets.put(BroadAdditionsMod.Content.Liquid.REDWATER.getBlock(), this);
+		BucketHandler.INSTANCE.buckets.put(Content.Liquid.REDWATER.getBlock(), this);
 	}
 
 }

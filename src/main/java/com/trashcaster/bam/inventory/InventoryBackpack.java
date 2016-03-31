@@ -8,19 +8,22 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.util.Constants;
 
-public class InventoryAccessories implements IInventory {
-	private final String name = "Accessories";
+public class InventoryBackpack implements IInventory {
+	private final String name = "Backpack";
 
 	private final String tagName = "Items";
-	public static final int SLOT_COUNT = 8;
+	public static final int SLOT_COUNT = 6;
 
 	private ItemStack[] inventory = new ItemStack[SLOT_COUNT];
+	
+	private ItemStack inventoryHolder;
 
-	public InventoryAccessories() {
+	public InventoryBackpack() {
 	}
 
 	@Override
@@ -30,6 +33,7 @@ public class InventoryAccessories implements IInventory {
 
 	@Override
 	public ItemStack getStackInSlot(int slot) {
+		if (slot >= this.inventory.length) return null;
 		return inventory[slot];
 	}
 
@@ -49,6 +53,7 @@ public class InventoryAccessories implements IInventory {
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack itemstack) {
+		if (slot >= this.inventory.length) return;
 		this.inventory[slot] = itemstack;
 
 		if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()) {
@@ -60,7 +65,7 @@ public class InventoryAccessories implements IInventory {
 
 	@Override
 	public int getInventoryStackLimit() {
-		return 1;
+		return 64;
 	}
 
 	@Override
@@ -169,25 +174,5 @@ public class InventoryAccessories implements IInventory {
 		for (int i = 0; i < this.inventory.length; ++i) {
 			this.inventory[i] = null;
 		}
-	}
-	
-	public static boolean isItemValidForSlot(ItemStack stack, Slot slot) {
-		IInventory inv = slot.inventory;
-		
-		boolean hasItem = false;
-		for (int i=0; i<inv.getSizeInventory(); i++) {
-			ItemStack item = inv.getStackInSlot(i);
-			
-			if (slot.getSlotIndex() == i) {
-				continue;
-			}
-			
-			if (item != null && stack.getItem() instanceof ItemAccessory && ((ItemAccessory)stack.getItem()).type.equals(((ItemAccessory)item.getItem()).type)) { // no allowing items of same type
-				hasItem = true;
-				break;
-			}
-		}
-		
-		return !hasItem;
 	}
 }

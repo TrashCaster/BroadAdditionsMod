@@ -5,7 +5,8 @@ import java.util.Set;
 
 import com.trashcaster.bam.block.BlockChair;
 import com.trashcaster.bam.common.CommonProxy;
-import com.trashcaster.bam.network.messages.MessageRidingJumpKey;
+import com.trashcaster.bam.network.messages.MessageBoostKey;
+import com.trashcaster.bam.network.messages.MessageSpawnBoostParticles;
 import com.trashcaster.bam.network.messages.MessageSwitchInventory;
 import com.trashcaster.bam.network.messages.MessageUpatePlayerData;
 import com.trashcaster.bam.network.messages.MessageUpdateGravestone;
@@ -25,6 +26,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -47,7 +50,7 @@ public class BroadAdditionsMod {
     public static SimpleNetworkWrapper NETWORK;
 
 	@EventHandler
-	public void preInit(FMLInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event) {
 		PROXY.preInit();
 		NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(MODID+".net");
 		int packetID = -1; // "unassigned" for now because...
@@ -57,8 +60,10 @@ public class BroadAdditionsMod {
 		NETWORK.registerMessage(MessageUpatePlayerData.ClientHandler.class, MessageUpatePlayerData.class, packetID, Side.CLIENT);
 		NETWORK.registerMessage(MessageUpdateGravestone.ServerHandler.class, MessageUpdateGravestone.class, ++packetID, Side.SERVER);
 		NETWORK.registerMessage(MessageUpdateGravestone.ClientHandler.class, MessageUpdateGravestone.class, packetID, Side.CLIENT);
-		NETWORK.registerMessage(MessageRidingJumpKey.ServerHandler.class, MessageRidingJumpKey.class, ++packetID, Side.SERVER);
-		NETWORK.registerMessage(MessageRidingJumpKey.ClientHandler.class, MessageRidingJumpKey.class, packetID, Side.CLIENT);
+		NETWORK.registerMessage(MessageSpawnBoostParticles.ServerHandler.class, MessageSpawnBoostParticles.class, ++packetID, Side.SERVER);
+		NETWORK.registerMessage(MessageSpawnBoostParticles.ClientHandler.class, MessageSpawnBoostParticles.class, packetID, Side.CLIENT);
+		NETWORK.registerMessage(MessageBoostKey.ServerHandler.class, MessageBoostKey.class, ++packetID, Side.SERVER);
+		NETWORK.registerMessage(MessageBoostKey.ClientHandler.class, MessageBoostKey.class, packetID, Side.CLIENT);
 		NETWORK.registerMessage(MessageSwitchInventory.ServerHandler.class, MessageSwitchInventory.class, ++packetID, Side.SERVER);
 		NETWORK.registerMessage(MessageSwitchInventory.ClientHandler.class, MessageSwitchInventory.class, packetID, Side.CLIENT);
 	}
@@ -70,89 +75,7 @@ public class BroadAdditionsMod {
 	}
 
 	@EventHandler
-	public void postInit(FMLInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event) {
 		PROXY.postInit();
-	}
-	
-	public static boolean isChair(Block block) {
-		if (block.equals(Content.Chairs.OAK)) {
-			return true;
-		}
-		if (block.equals(Content.Chairs.BIRCH)) {
-			return true;
-		}
-		if (block.equals(Content.Chairs.SPRUCE)) {
-			return true;
-		}
-		if (block.equals(Content.Chairs.JUNGLE)) {
-			return true;
-		}
-		if (block.equals(Content.Chairs.ACACIA)) {
-			return true;
-		}
-		if (block.equals(Content.Chairs.DARK_OAK)) {
-			return true;
-		}
-		return false;
-	}
-	
-	public static boolean isTable(Block block) {
-		if (block.equals(Content.Tables.OAK)) {
-			return true;
-		}
-		if (block.equals(Content.Tables.BIRCH)) {
-			return true;
-		}
-		if (block.equals(Content.Tables.SPRUCE)) {
-			return true;
-		}
-		if (block.equals(Content.Tables.JUNGLE)) {
-			return true;
-		}
-		if (block.equals(Content.Tables.ACACIA)) {
-			return true;
-		}
-		if (block.equals(Content.Tables.DARK_OAK)) {
-			return true;
-		}
-		return false;
-	}
-	
-	
-	public static class Content {
-		public static class Chairs {
-			public static Block OAK;
-			public static Block BIRCH;
-			public static Block SPRUCE;
-			public static Block JUNGLE;
-			public static Block ACACIA;
-			public static Block DARK_OAK;
-		}
-		
-		public static class Tables {
-			public static Block OAK;
-			public static Block BIRCH;
-			public static Block SPRUCE;
-			public static Block JUNGLE;
-			public static Block ACACIA;
-			public static Block DARK_OAK;
-		}
-
-		
-		public static class Accessories {
-			public static Item AMULET;
-		}
-		
-		public static class Misc {
-			public static Block GRAVESTONE;
-			public static Block NETHER_CHEST;
-			public static Item FLYING_CARPET;
-		}
-		
-		public static class Liquid {
-			public static final Set<Fluid> REGISTERED_FLUIDS = new HashSet<Fluid>();
-			public static final Set<IFluidBlock> REGISTERED_FLUID_BLOCKS = new HashSet<IFluidBlock>();
-			public static Fluid REDWATER;
-		}
 	}
 }
